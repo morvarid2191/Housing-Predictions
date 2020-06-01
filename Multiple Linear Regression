@@ -69,3 +69,9 @@ Regression statistics
           Mean Percentage Error (MPE) : -10.3553
 Mean Absolute Percentage Error (MAPE) : 28.7033
 
+#COMPARE THIS RESULTS WITH THE RESULT FROM LINEAR REGRESSION ON THE SAME DATA
+                 Mean Error (ME) : 935.4942
+       Root Mean Squared Error (RMSE) : 68932.5443
+            Mean Absolute Error (MAE) : 49831.2047
+          Mean Percentage Error (MPE) : -9.8600
+Mean Absolute Percentage Error (MAPE) : 28.4619
