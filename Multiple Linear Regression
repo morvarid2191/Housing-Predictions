@@ -61,7 +61,7 @@ regressionSummary(train_y, ReducedCAMLRhousing.predict(train_x))
 10    ocean_proximity_NEAR BAY   -3720.278003
 11  ocean_proximity_NEAR OCEAN    5191.746121
 
-Regression statistics
+Regression statistics (TRAIN)
 
                       Mean Error (ME) : 0.0000
        Root Mean Squared Error (RMSE) : 68454.1925
@@ -70,8 +70,67 @@ Regression statistics
 Mean Absolute Percentage Error (MAPE) : 28.7033
 
 #COMPARE THIS RESULTS WITH THE RESULT FROM LINEAR REGRESSION ON THE SAME DATA
-                 Mean Error (ME) : 935.4942
+    Regression statistics (TRAIN)
+
+                      Mean Error (ME) : 0.0000
+       Root Mean Squared Error (RMSE) : 68454.1925
+            Mean Absolute Error (MAE) : 49633.3645
+          Mean Percentage Error (MPE) : -10.3553
+Mean Absolute Percentage Error (MAPE) : 28.7033
+
+
+# We use predict() to make predictions on our new set
+ReducedCAMLRhousing_pred = ReducedCAMLRhousing.predict(valid_x)
+
+result = pd.DataFrame({'Predicted': ReducedCAMLRhousing_pred, 'Actual': valid_y,
+                       'Residual': valid_y - ReducedCAMLRhousing_pred})
+print(result.head(20))
+
+# print performance measures (validation data)
+regressionSummary(valid_y, ReducedCAMLRhousing_pred)
+#      Predicted    Actual       Residual
+6715   381575.901392  360900.0  -20675.901392
+4121   280442.284083  291500.0   11057.715917
+15433  156189.944973  131300.0  -24889.944973
+20272  355450.644766  500001.0  144550.355234
+11843   56148.758536  118800.0   62651.241464
+1398   244849.173528  189600.0  -55249.173528
+1838   184466.791567  162500.0  -21966.791567
+1902    91645.429342  134700.0   43054.570658
+18586  230670.955038  192200.0  -38470.955038
+11765  138214.523983  179400.0   41185.476017
+4220   591468.553213  500001.0  -91467.553213
+16866  247686.226118  318400.0   70713.773882
+5499   230631.340127  287500.0   56868.659873
+13731  138922.741932  137000.0   -1922.741932
+15204  333747.182007  327900.0   -5847.182007
+14671  293829.496665  288200.0   -5629.496665
+18479  285011.055892  300800.0   15788.944108
+10174  211819.332197  169200.0  -42619.332197
+3806   163805.809463  195600.0   31794.190537
+1302   181264.098438  133400.0  -47864.098438
+
+Regression statistics
+
+                      Mean Error (ME) : 935.4942
        Root Mean Squared Error (RMSE) : 68932.5443
             Mean Absolute Error (MAE) : 49831.2047
           Mean Percentage Error (MPE) : -9.8600
 Mean Absolute Percentage Error (MAPE) : 28.4619
+
+#COMPARE THIS RESULTS WITH THE RESULT FROM LINEAR REGRESSION ON THE SAME DATA
+Regression statistics
+
+                      Mean Error (ME) : 935.4942
+       Root Mean Squared Error (RMSE) : 68932.5443
+            Mean Absolute Error (MAE) : 49831.2047
+          Mean Percentage Error (MPE) : -9.8600
+Mean Absolute Percentage Error (MAPE) : 28.4619
+
+import matplotlib.pylab as plt
+import pandas as pd
+import numpy as np
+import matplotlib
+matplotlib.use('TkAgg')
+
+plt.show()
